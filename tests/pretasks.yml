@@ -1,0 +1,26 @@
+---
+# file: ssh-config.yml
+- hosts: all
+  become: true
+  remote_user: root
+  gather_facts: no
+  pre_tasks:
+  - name: 'install python2'
+    raw: sudo apt-get -y install python-simplejson
+  tasks:
+  - name: Create authorized_keys folder
+    file: path=/root/.ssh state=directory owner=root group=root mode=0700 recurse=yes
+  - name: Copy ssh keys to authorized_keys
+    copy:
+      src: files/authorized_keys
+      dest: /root/.ssh/authorized_keys
+      owner: root
+      group: root
+      mode: 0600
+  - name: copy bashrc copy
+    copy:
+      src: files/bashrc
+      dest: /root/.bashrc
+      owner: root
+      group: root
+      mode: 0700
