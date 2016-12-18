@@ -1,0 +1,5 @@
+# customhosts
+#inventory config for my cluster
+
+[www]
+10.0.77.11 ansible_ssh_user=root

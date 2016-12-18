@@ -1,0 +1,36 @@
+---
+- hosts: all
+  remote_user: root
+  become: true
+  tasks:
+  - group:
+      name: devops
+      state: present
+  - name: Create devops user with admin privileges
+    user:
+      name: devops
+      comment: "Devops user"
+      uid: 2001
+      group: devops
+  - name: install htop package
+    action: apt name=htop state=present update_cache=yes
+
+- hosts: www
+  user: root
+  sudo: yes
+  tasks:
+  - name: add official nginx repository 1
+    apt_repository:
+      repo: 'deb http://nginx.org/packages/debian/ jessie nginx'
+  - name: add official nginx repository 2
+    apt_repository:
+      repo: 'deb-src http://nginx.org/packages/debian/ jessie nginx'
+  - name: install nginx web server and ensure its at the latest version
+    apt:
+      name: nginx
+      state: latest
+      update_cache: yes
+  - name: start nginx service
+    service:
+      name: nginx
+      state: started
