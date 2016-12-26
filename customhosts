@@ -3,3 +3,7 @@
 
 [www]
 10.0.77.11 ansible_ssh_user=root
+
+[db]
+10.0.77.12 ansible_ssh_user=root
+10.0.77.13 ansible_ssh_user=root

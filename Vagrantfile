@@ -13,20 +13,20 @@ boxes = [
     :cpu => "33",
     :ram => "256"
   },
-  # {
-  #   :name => "debian-12",
-  #   :box => "debian/contrib-jessie64",
-  #   :ip => '10.0.77.12',
-  #   :cpu => "33",
-  #   :ram => "256"
-  # },
-  # {
-  #   :name => "debian-13",
-  #   :box => "debian/contrib-jessie64",
-  #   :ip => '10.0.77.13',
-  #   :cpu => "33",
-  #   :ram => "256"
-  # },
+  {
+    :name => "debian-12",
+    :box => "debian/contrib-jessie64",
+    :ip => '10.0.77.12',
+    :cpu => "33",
+    :ram => "256"
+  },
+  {
+    :name => "centos-13",
+    :box => "centos65-base",
+    :ip => '10.0.77.13',
+    :cpu => "33",
+    :ram => "256"
+  },
 ]
 
 Vagrant.configure("2") do |config|

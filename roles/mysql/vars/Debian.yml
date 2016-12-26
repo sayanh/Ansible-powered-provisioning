@@ -1,0 +1,7 @@
+---
+# Debian specific Configs.
+# roles/mysql/vars/Debian.yml
+mysql_socket: /var/lib/mysql/mysql.sock
+mysql_confpath: /etc/mysql/my.cnf
+mysql_service: mysqld
+mysql_bind: 0.0.0.0

@@ -1,0 +1,6 @@
+---
+# filename: roles/mysql/tasks/configure.yml
+- name: Create mysql config
+  template: src="my.cnf.j2" dest="{{ mysql_confpath }}" mode=0644
+  notify:
+  - restart mysql service

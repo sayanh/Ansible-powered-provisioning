@@ -1,0 +1,12 @@
+---
+galaxy_info: 
+  author: Sayan Hazra
+  description: MySQL Database role
+  company: Personal
+  min_ansible_version: 2.2.0
+  platforms: 
+  - name: EL
+    versions:
+      - all
+  categories: 
+  - database: sql

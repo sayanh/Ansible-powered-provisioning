@@ -3,10 +3,14 @@
 - hosts: all
   become: true
   remote_user: root
-  gather_facts: no
+  # gather_facts: yes
   pre_tasks:
   - name: 'install python2'
     raw: sudo apt-get -y install python-simplejson
+    when: ansible_os_family == 'Debian'
+  - name: 'install python2'
+    raw: sudo yum -y install libselinux-python
+    when: ansible_os_family == 'RedHat'
   tasks:
   - name: Create authorized_keys folder
     file: path=/root/.ssh state=directory owner=root group=root mode=0700 recurse=yes
